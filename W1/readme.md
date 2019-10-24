@@ -14,42 +14,6 @@ Upon successful completion of this workshop, you will have demonstrated the abil
 - upgrade code to accept and manage a user-defined string of any length
 
 
-
-## Submission Policy
-
-The *in-lab* section is to be completed during your assigned lab section.  It is to be completed and submitted by the end of the workshop period.  If you attend the lab period and cannot complete the *in-lab* portion of the workshop during that period, ask your instructor for permission to complete the *in-lab* portion after the period.  If you do not attend the workshop, you can submit the *in-lab* section along with your *at-home* section (see penalties below).  **In order to get credit for the *in-lab* portion, you must be present in the lab.**
-
-The *at-home* portion of the workshop is due on the day that is four days after your scheduled *in-lab* workshop (@ 23:59:59), **even if that day is a holiday**.
-
-All your work (all the files you create or modify) must contain your name, Seneca email, student number and the date of completion (use the following template):
-
-```cpp
-// Name:
-// Seneca Student ID:
-// Seneca email:
-// Date of completion:
-//
-// I confirm that the content of this file is created by me,
-//   with the exception of the parts provided to me by my professor.
-```
-
-You are responsible to back up your work regularly.
-
-
-
-### Late Submission Penalties
-
-The workshop can be usbmitted up to **1 (one) day** late (the day that is 5 days after the lab period); submissions received on this day are considered **late** are subject to penalties:
-
-- only *in-lab* portion submitted late (after the end of the lab period): 0 for *in-lab* portion, max 7/10 for the entire workshop.
-- only *at-home* portion submited late (more than 4 days after the lab period): 4 for the *at-home* portion, max 7/10 for the entire workshop.
-- both *in-lab* **and** *at-home* portions submitted late: max 4/10 for the entire workshop.
-- when the submission closes, if the workshop is not complete, the mark for the entire workshop will be 0/10. The workshop is considered complete if there are two separate submissions (*in-lab* submission and *at-home* submission) containing the *in-lab code*, *at-home code* and *reflection*.
-
-The submission is considered closed at the end of the day that is 5 (five) days after the lab period.
-
-
-
 ## *In-Lab*
 
 This workshop consists of three modules:
