@@ -7,10 +7,10 @@ This repository contains Workshops, Projects, Notes, and other course work for F
 - [x] WS03 - Class Templates
 - [x] WS04 - Containers
 - [x] WS05 - Lambda Expressions
-- [] WS06 - STL Containers
-- [] WS07 - STL Algorithms
-- [] WS08 - Smart Pointers
-- [] WS09 - Multi-Threading
+- [ ] WS06 - STL Containers
+- [ ] WS07 - STL Algorithms
+- [ ] WS08 - Smart Pointers
+- [ ] WS09 - Multi-Threading
 
 ### Notes used
 - Cherno Youtube Channel: https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb
