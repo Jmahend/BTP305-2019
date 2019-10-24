@@ -1,0 +1,40 @@
+The topics I learned in this workshop were how to work with lambda expressions, functors and functions to pointers.
+I also learned about the std::string.replace() function which I will probably be using in the future.
+My main issue with this workshop was trying to imagine how everything was going to be used while I was working through it.
+I like to assume at least some level of functionality so I have little to debug by time I am ready for compliation.  In this case
+because we were working with template classes(Collection) and other concepts that were foreign before this lab (lambdas, functors, function to pointers) 
+I spent more time then usual trying to understand how everything is supposed to come to together. I also had another issue where I could not use my standard
+*this = Collection() because we blocked the use of a copy constructor/assignment.  This lead me to forget to fully set my collection object to a safe empty state
+and caused a crash when submitting to matrix.  After hours of debugging i found out that it was an uninitialized pointer.
+
+
+Lab Reflection Questions:
+
+1. The difference between the implementations/utilizations of a functor and a lambda expression
+
+	Lamdas are anonymous functions that are used onced or very sparingly within a scope. They are implemented using the:
+	"return type Identifer = [access](Paramenters){ logic} " and act strictly as functions. While functors are just regular classes
+	with their "()" operator overloaded.  This allows the class object to be called like any other function.  While a lamda is just a function
+	a functor is a class with the ability to act like a function. 
+	
+2. The constructor for SpellChecker generates an exception in certain conditions. How would you change you code to achieve the same result, but without exceptions 
+(both on the constructor and on the client side)? Compare the two solutions.
+
+	If an invalid file name was sent to my SpellChecker's constructor I would change to code to set SpellChecker to a 
+	safe empty state.  This way it wouldn't be able to modifiy any strings sent to it after the constructor is finished.
+
+
+
+3. the classes Movie and Book contain almost identical logic in loading data from the file. How would you redesign the classes in order not to duplicate that logic?
+
+	I would create a class named Entertainment object and have Movie and Book inherit from it. This allows for both classes to have the same logic without the duplication
+	of code.
+
+
+4.  the classes Movie and Book are instantiated from the main() function using a custom constructor, but they also contain a default constructor. Is the default constructor necessary? Could you remove it? Justify your answer.
+	A default constructor is not neccessary however is good common practice. In our case if we kept main as is we could remove it but if didn't want to fill the books up right from it's initialization then it would be good
+	to have a constructor in order to put them in a safe empty state.
+	
+Quiz 5 Reflection:
+
+I got 10/10

@@ -1,0 +1,41 @@
+I got to explore the difference of internal vs external linkage using variables such as
+
+ - Using the variable “g_maxSize” & the “external” keyword I was able to create a promise to the compiler that I would define this variable in a different file. This allowed the variable to be accessible by a variety of modules. 
+
+
+What are static variables and how where they useful in this workshop
+
+  - Static variables are variables that are shared with all instances of its method/scope.  This helps to create a pseudo type of global variable that is only accessible by  function’s or class’s instances.   In this workshop I took advantage of the static variables ability so i could count how many instances of the display function were called. 
+
+
+ The changes made in upgrading my String class
+
+    - I converted the msg variable from a statically allocated attribute to a dynamic one.  Anytime dynamic memory is involved in a class it is good practice to include the copy constructor, copy assignment operator and a destructor. 
+
+
+   - In the copy assignment operator:
+       1. Check if the object im copying to is the same as the src object (self -assignment)
+       2. I then make sure I clean up the object before I allow it to be copied too using the delete[] function
+       3. From here I check if the src object has a null msg, if not then i copy it over to the new object.
+
+
+    - In the copy constructor:
+
+	- I initialize the dynamic attribute and then call the copy assignment operator 
+
+
+Destructor :
+    - I just call the delete[] function for the dynamically allocated attribute. 
+
+Constructor:
+Initialize dynamically allocated attribute using nullptr;
+
+
+
+Issues encountered:
+
+
+Since we were not using std::String objects, I was unsure how to grab the length of a char *.   I eventually came across the strlen function on stackoverflow and went with that.  
+
+
+Another minor issue was the console was showing memory past command inputs after they were converted to string objects. This was solved by adding the ‘\0’ character.

@@ -1,0 +1,46 @@
+In this lab I learned how to implement the 2 of the 3 types of relationships between objects. (Aside from inheritance)
+Those types were 
+
+composition: where the restaurant handles the life allocation and deallcation of reservation objects
+&
+Aggregation: Where confirmationsender handles an array of resveration objects but does not handle their allocation/deallocation.
+
+When it came to implementing the rule of 5(copy constructor/assignment, move constructor/assignment and destructor) there were also some differences.
+
+Copy Constructor/Assignment:
+ - Composition(Restarurant) creates brand new component objects(Reservations) instead of storing the address of the objects sent to it
+ - Aggregation(ConfirmationSender) only stores the addresses of it's component objects and does not initilize their creation at all.
+
+
+Move Constructor/Assignment
+- Composition: The composition(Restaurant) moves each individual component object(Reservation) to the other object.
+- Aggregation: The aggregation(ConfirmationSender) moves the address that points to the array of addresses to the other object 
+
+
+Issues:  
+
+Reseveration ** (array of pointers pointing to other pointers):
+I had an issue with distinuguishing the syntax between a const pointer and a pointer to a const. Due to this I had issues
+assigning values in the move/copy & +/= operators.  After some research on stack overflow I was able to distinguish that
+a const poitner is a pointer that can not have it's address changed anda  pointer to a const is a pointer that points
+to an object that isn't allowed to be changed through the pointer.
+
+Since I had not worked with an object like Reservation** before I was unsure if I should call the delete[] function
+on it.  I feared that by calling it I would be destroying the reservation objects inside the pointers but this misunderstanidng
+was quelled through trial and error.  I would of ended up with a memory leak if I hadn't called the delete function
+
+
+
+
+
+Quiz 3 Reflection:
+
+1. A deep copy is when the resources of a class object is copied over to a new object. This allows the new object to use dynamically allocated
+memory.
+
+
+2.  Composition, Aggreation, Association
+
+
+3. gl value: Pure value that is used to initialize a variable.
+   r value :  Right side value that is temporary and will be discarded after use.

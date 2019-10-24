@@ -1,0 +1,23 @@
+
+
+
+In this workshop 2 : Move and Copy Semantics I reviewed how to use a ifstream object & std::string 
+to read through a file.  I also learned how to incorperate move semantics nto my code to allow for
+faster and more efficient code.  I believe move operators are faster then copy operations because they 
+don't have to allocate a whole new section of memory to store data in.  Instead the address is just passe
+through to a different object.  It's kind of like changing owners of an item verses copying an item and then
+giving the copy to the owner. 1 has less steps
+
+Issues :
+
+I had orginally used vectors to handle dynamic objects but seeing as that wasn't allowed I had to 
+rework code.  This rework lead to some issues such as crashing the console mid way through run-time. 
+
+My next issue was understanding how the chrono time objects worked. I didn't know how to initiate them
+in the constructor so my solution was to go through the documentation.  The documentation stated that they
+initialize themselves to 0 but just to be safe I initialized them to the current sys-time. 
+
+
+Quiz 2 Reflection
+
+- No reflection avaliable as I got 10/10.

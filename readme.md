@@ -2,17 +2,18 @@
 This repository contains Workshops, Projects, Notes, and other course work for Fall 2019 OOP305 emphasizing topics such as Copy and Move semantics, STL containers, smart pointers, and much more
 
 ### Finished Workshops
-- [x] WS01 - Memory, Linkage and Storage Classes, From One Translation Unit to Another
+- [x] WS01 - Across Translation Units
 - [x] WS02 - Copy and Move Semantics
 - [x] WS03 - Class Templates
 - [x] WS04 - Containers
 - [x] WS05 - Lambda Expressions
-- [x] WS06 - STL Containers
-- [x] WS07 - STL Algorithms
-- [x] WS08 - Smart Pointers
-- [x] WS09 - Multi-Threading
+- [] WS06 - STL Containers
+- [] WS07 - STL Algorithms
+- [] WS08 - Smart Pointers
+- [] WS09 - Multi-Threading
 
 ### Notes used
+- Cherno Youtube Channel: https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb
 - Main OOP345 Notes: https://scs.senecac.on.ca/~oop345/pages/content/index.html
 - Dynamic Memory Allocation:
   - https://www.geeksforgeeks.org/new-and-delete-operators-in-cpp-for-dynamic-memory/

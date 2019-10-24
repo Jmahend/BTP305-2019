@@ -1,0 +1,53 @@
+The main topics I explored in this lab was how to use templates & template specializations with variables, functions and entire 
+classes/objects.  I also learned that you can call a static function from the type itself without having to state a variable name.
+ex.  Normal : T name.getvalue()  vs  name = T::getvalue(). 
+
+
+Issues:
+
+I had a hard time following the instructions of the lab as I could not imagine what each function was trying to accomplish in the grand scheme of things.
+Instead I tried to just follow the logic the instructions were asking for and hope that what I was doing was right.  This lead to a lot of bug testing and
+adjustments but in the end I was able to complete the lab. Another issue was I misread the part where they asked for static class variables leading to 
+a large amount of time being wasted on a issue that could of been easily solved if i just read the document carefully. Next time
+I will try and take my time to read each word in the document and make sure I fully understand what it is asking for. 
+
+The next issue I had was with the static function call. I was unaware that you could call a static function directly from the time
+using ( name = T::getvalue() ). I found this out by doing some research and asking around for help.  I don't believe I would of ever
+find this out otherwise. 
+
+The final issue I had was the string, string summableLVPairs kept including the initial value in all the categories via the sum function.
+I solved this by adding a statement that checked if the summableLVPairs were in a empty safe state. If one was then it would not be included
+in the sum.
+
+
+
+Workshop questions: 
+
+The reason for specializing the sum function for SummableLVPair<std::string, std::string> objects:
+
+The point of the sum value was to add values to create a list/counter.  The normal sum value
+would of just concat the strings with improper formatting and we couldn't add proper formatting without
+excluding the number types(int, double, long, etc).  So instead we made a exception using specialization
+that would proper format string types when they had matching labels. 
+
+
+The reason for specialzing the intial value for a summation:
+
+If we set the default value of the initial value for a summation  to an int value then
+we state that any object made with this template class must support this assignment. 
+In our case we know that we would be support string summable types too and thus this
+assignment would be incompatiable.  That is why we made seperate specializations for
+both the SummableLVPair<std::string, std::string> & SummableLVPair<std::string, int>
+classes/objects.
+
+
+The reason for specializing the class variable outside the class definition 
+
+We does this according to the one defintion rule.  If we set the static defintion in the
+class's scope then we would end up with multiple definitions and thus break the one definition
+rule.  We solve this by defining it into the namespace instead.
+
+
+Quiz Reflection:
+
+I got 10/10 so no reflection is needed.
