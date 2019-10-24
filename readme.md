@@ -12,8 +12,13 @@ This repository contains Workshops, Projects, Notes, and other course work for F
 - [ ] WS08 - Smart Pointers
 - [ ] WS09 - Multi-Threading
 
+### Finished Final Project Milestones 
+- [ ] MS1 - Utilities and Item classes
+- [ ] MS2 - CustomerOrder class
+- [ ] MS3 - Task & LineManager class
+
 ### Notes used
-- Cherno Youtube Channel: https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb
+- Cherno C++ Youtube Channel: https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb
 - Main OOP345 Notes: https://scs.senecac.on.ca/~oop345/pages/content/index.html
 - Dynamic Memory Allocation:
   - https://www.geeksforgeeks.org/new-and-delete-operators-in-cpp-for-dynamic-memory/
@@ -32,4 +37,4 @@ This repository contains Workshops, Projects, Notes, and other course work for F
 - IOMANIP
   - https://www.ieenews.com/setprecision-c-use-setprecision-c/ 
 
-##Read.md copied from classmate: https://github.com/leanjunio/OOP345 :)
+
