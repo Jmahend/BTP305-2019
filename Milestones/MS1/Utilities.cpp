@@ -15,7 +15,7 @@ namespace sdds {
 
 
 	std::string Utilities::m_delimiter = "|";
-	bool Utilities::debug = true; //used for debugging reasons
+	bool Utilities::debug = false; //used for debugging reasons
 
 
 	Utilities::Utilities()
@@ -70,7 +70,7 @@ namespace sdds {
 					//if a 2nd delimiter does not exist a.k.a find returned string::npos then grab charactes between 1st delim and end of string (we assume we are at the end of the string)	
 										// EX: "CPU,123456,5,Central Processing Unit" -----> Central Processing Unit
 
-			token = line.substr(cur_pos, (next_pos != string::npos ? next_pos : line.length()));
+			token = line.substr(cur_pos, (next_pos != string::npos ? next_pos-cur_pos : line.length()));
 
 				if (debug) cout << "Token : |" << token << "|" << endl;
 
@@ -82,7 +82,7 @@ namespace sdds {
 			token_found = true; //if token is not an empty string then set token_found to true 
 			cur_pos = next_pos + 1; //change cur_pos to previous next_pos, (The +1 is to account for the delimiter's spot);
 
-					if (debug) cout << "Token_Found : " << token_found  << endl;
+					if (debug) cout << "cur_pos : " << cur_pos  << endl;
 
 			if (token.length() > m_widthField ) { //Check if m_widthField is smaller then token, if so then set width to token length
 
