@@ -64,6 +64,13 @@ namespace sdds {
 								std::cout << "m_description : |" << m_description << "|" << std::endl;
 					break;
 				}
+
+				if (i != 3) {
+					if (exractor.getFieldWidth() > m_widthField) { //check if extractor's fieldWidth is greater then Item's fieldWidth
+
+						m_widthField = exractor.getFieldWidth(); //if so then change Item's fieldWidth
+					}
+				}
 				
 			}
 			else {
@@ -71,10 +78,7 @@ namespace sdds {
 			}
 		}
 
-		if (exractor.getFieldWidth() > m_widthField) { //check if extractor's fieldWidth is greater then Item's fieldWidth
-
-			m_widthField = exractor.getFieldWidth(); //if so then change Item's fieldWidth
-		}
+		
 
 
 

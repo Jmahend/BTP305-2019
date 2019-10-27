@@ -81,7 +81,6 @@ namespace sdds {
 
 			token_found = true; //if token is not an empty string then set token_found to true 
 			cur_pos = next_pos + 1; //change cur_pos to previous next_pos, (The +1 is to account for the delimiter's spot);
-
 					if (debug) cout << "cur_pos : " << cur_pos  << endl;
 
 			if (token.length() > m_widthField ) { //Check if m_widthField is smaller then token, if so then set width to token length
