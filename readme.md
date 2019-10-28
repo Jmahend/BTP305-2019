@@ -13,7 +13,7 @@ This repository contains Workshops, Projects, Notes, and other course work for F
 - [ ] WS09 - Multi-Threading
 
 ### Finished Final Project Milestones 
-- [ ] MS1 - Utilities and Item classes
+- [x] MS1 - Utilities and Item classes
 - [ ] MS2 - CustomerOrder class
 - [ ] MS3 - Task & LineManager class
 
