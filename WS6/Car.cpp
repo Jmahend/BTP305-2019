@@ -84,14 +84,7 @@ namespace sdds {
 			return isValid; //could of just done return (c==brand_new ...) but i wanted the debug statement
 		};
 
-		auto Trim = [](std::string& str) {
-			while (str.at(0) == ' ')
-				str = str.substr(1, str.length() - 1);
 
-
-			while (str.at(str.length() - 1) == ' ')
-				str = str.substr(0, str.length() - 1);
-		};
 
 		auto isAnInt = [](std::string str) { //Check if the string only has digits
 			return (str.find_first_not_of("0123456789") == std::string::npos); 
@@ -124,9 +117,9 @@ namespace sdds {
 				case 0:  //Grab tag and do nothing  (TAG is used for utitlities class)
 					if (debug) cout << "Tag Grabbed: " << token << endl;
 
-					if (!(token[0] == 'c' || token[0] == 'C')) { //might cause issues check later
+					/*if (!(token[0] == 'c' || token[0] == 'C')) { //might cause issues check later
 						SetToSafeEmptyState();
-					}	
+					}*/	
 
 					break;
 
@@ -138,14 +131,16 @@ namespace sdds {
 
 					if (isConditionValid(token[0])) {
 						m_condition = Car_Condition(token[0]);
-						if (debug) cout << "Condition : |" << m_condition << "|" << endl;
+						
 					}
 					
 					else {
 		
-						SetToSafeEmptyState();
+						m_condition = Brand_New;
 
 					}
+
+					if (debug) cout << "Condition : |" << m_condition << "|" << endl;
 
 					break;
 
@@ -178,6 +173,18 @@ namespace sdds {
 
 
 
+
+	void Car::Trim(std::string& str)
+	{
+		
+			while (str.at(0) == ' ')
+				str = str.substr(1, str.length() - 1);
+
+
+			while (str.at(str.length() - 1) == ' ')
+				str = str.substr(0, str.length() - 1);
+	
+	}
 
 	double Car::topSpeed() const
 	{
