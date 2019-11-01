@@ -24,7 +24,8 @@ namespace sdds {
 			Car_Condition m_condition;
 			double m_top_speed;
 			bool isEmpty;
-
+			
+			static std::string delim;
 			static bool debug; //used for debugging reasons :)
 
 
@@ -37,6 +38,10 @@ namespace sdds {
 			Car(std::istream& is);
 			~Car();
 
+			std::string getDelim() const;
+
+			bool isAnInt(std::string str) const;
+			void Trim(std::string& str);
 
 			double topSpeed() const;
 			void display(std::ostream& os) const;

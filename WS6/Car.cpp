@@ -20,7 +20,29 @@ using namespace std;
 namespace sdds {
 
 
-	bool Car::debug = false;
+	bool Car::debug = true;
+	std::string Car::delim = ",";
+
+
+	std::string Car::getDelim() const
+	{
+		return delim;
+
+	}
+	bool Car::isAnInt(std::string str) const { //Check if the string only has digits
+		return (str.find_first_not_of("0123456789.") == std::string::npos);
+		//true if the string only contains digits
+	};
+	void Car::Trim(std::string& str) {
+		if (!str.empty()) {
+			while (str.at(0) == ' ')
+				str = str.substr(1, str.length() - 1);
+
+
+			while (str.at(str.length() - 1) == ' ')
+				str = str.substr(0, str.length() - 1);
+		}
+	}
 
 	void Car::SetToSafeEmptyState()
 	{
@@ -69,8 +91,6 @@ namespace sdds {
 
 		auto isConditionValid = [&](char& c) { //Check if char sent is a valid Car_Condition
 
-
-
 			if (debug) {
 
 				cout << "Condition char sent : " << c << endl;
@@ -85,22 +105,22 @@ namespace sdds {
 		};
 
 
-
-		auto isAnInt = [](std::string str) { //Check if the string only has digits
-			return (str.find_first_not_of("0123456789") == std::string::npos); 
-			//true if the string only contains digits
-		};
+		
 
 		//Set car attributes :)
 		// TAG,MAKER,CONDITION,TOP_SPEED
 
 		if (debug) cout << "Line : " << line << endl;
 		
-	  for (int i = 0; i < 5 && isEmpty == false; ++i) {  //if the object goes into a safe empty state then stop the for loop
+	  for (int i = 0; i < 4 && isEmpty == false; ++i) {  //if the object goes into a safe empty state then stop the for loop
 
-			next_delim_pos = line.find(",", cur_pos);  //find delimiter
+			next_delim_pos = line.find(delim, cur_pos);  //find delimiter
 			token = line.substr(cur_pos, (next_delim_pos != string::npos ? next_delim_pos-cur_pos : line.length() )); //Grab a field from the line   line = TAG,MAKER,CONDITION,TOP_SPEED ---->   token = CONDITION
-			Trim(token);
+			
+			if (i != 2) { //Trim isn't used for 
+				Trim(token);
+
+			}
 
 			if (debug) {
 				cout << "i : " << i << endl;
@@ -114,34 +134,43 @@ namespace sdds {
 			switch (i) {
 
 
-				case 0:  //Grab tag and do nothing  (TAG is used for utitlities class)
-					if (debug) cout << "Tag Grabbed: " << token << endl;
+			case 0:  //Grab tag and do nothing  (TAG is used for utitlities class)
+				if (debug) cout << "Tag Grabbed: " << token << endl;
 
-					/*if (!(token[0] == 'c' || token[0] == 'C')) { //might cause issues check later
-						SetToSafeEmptyState();
-					}*/	
+			//	if (!(token[0] == 'c' || token[0] == 'C')) { //might cause issues check later
+					//SetToSafeEmptyState();
+				
+				//}
 
-					break;
+				break;
 
-				case 1:  //Set Manufacture 
-					m_manufacture = token;
-					if (debug) cout << "Manufacture : |" << m_manufacture << "|" << endl;
-					break;
-				case 2: //Set Condition
+			case 1:  //Set Manufacture 
+				m_manufacture = token;
+				if (debug) cout << "Manufacture : |" << m_manufacture << "|" << endl;
+				break;
+			case 2: //Set Condition
+
+				if (token.find_first_not_of(' ') != std::string::npos) { //if token isn't just a bunch of spaces
+
+					Trim(token);
 
 					if (isConditionValid(token[0])) {
 						m_condition = Car_Condition(token[0]);
-						
-					}
-					
-					else {
-		
-						m_condition = Brand_New;
-
+						if (debug) cout << "Condition : |" << m_condition << "|" << endl;
 					}
 
-					if (debug) cout << "Condition : |" << m_condition << "|" << endl;
+					else { //if condition is an invalid character
 
+
+						throw std::string("Invalid record!");
+
+					}
+				}
+				else { //if token is a bunch of spaces assume condition is new
+
+					m_condition = Brand_New;
+
+				}
 					break;
 
 				case 3: //setTopSpeed
@@ -151,8 +180,8 @@ namespace sdds {
 						if (debug) cout << "Top speed : " << m_top_speed << endl;
 
 					}
-					else {
-						SetToSafeEmptyState();
+					else { //if token is not a number throw error
+						throw std::string("Invalid record!");
 					}
 					break;
 
@@ -173,18 +202,6 @@ namespace sdds {
 
 
 
-
-	void Car::Trim(std::string& str)
-	{
-		
-			while (str.at(0) == ' ')
-				str = str.substr(1, str.length() - 1);
-
-
-			while (str.at(str.length() - 1) == ' ')
-				str = str.substr(0, str.length() - 1);
-	
-	}
 
 	double Car::topSpeed() const
 	{

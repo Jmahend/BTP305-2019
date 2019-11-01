@@ -24,13 +24,16 @@ namespace sdds {
 		os << "--------------------------------" << std::endl;
 
 		for (auto& obj : m_vehicles)
-		obj->display(os);
+			obj->display(os);
 
 		os << "--------------------------------" << std::endl;
 	}
 
 	Autoshop::~Autoshop()
 	{
+		for (auto& obj : m_vehicles)
+			delete[] obj;
+
 
 		m_vehicles.clear();
 	}

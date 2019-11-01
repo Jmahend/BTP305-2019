@@ -9,8 +9,9 @@
 
 #ifndef SDDS_AUTOSHOP_H
 #define SDDS_AUTOSHOP_H
-#include "Car.h"
 #include <vector>
+#include <list>
+#include "Car.h"
 namespace sdds {
 
 
@@ -21,6 +22,16 @@ namespace sdds {
 
 	public:
 		//Autoshop();
+		
+		template<typename T>
+		void select(T test, std::list<const Vehicle*>& vehicles) {
+
+			for (auto& obj : m_vehicles)
+			  vehicles.push_back(obj);
+
+
+		}
+
 		Autoshop& operator+=(Vehicle* theVehicle);
 		void display(std::ostream& os) const;
 		~Autoshop();

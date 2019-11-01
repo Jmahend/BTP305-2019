@@ -8,6 +8,7 @@
 #include <sstream>
 #include <string>
 #include "Car.h"
+#include "Racecar.h"
 #include "Utilities.h"
 
 using namespace std;
@@ -52,6 +53,14 @@ namespace sdds {
 			
 				tmp = new Car(sstream);
 
+			}
+			else if (sstream.str().at(0) == 'r' || sstream.str().at(0) == 'R') {
+
+				tmp = new Racecar(sstream);
+
+			}
+			else {
+				throw std::string("Unrecongized record type: [") + sstream.str().at(0) + "]";
 			}
 
 
