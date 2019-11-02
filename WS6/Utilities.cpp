@@ -60,7 +60,7 @@ namespace sdds {
 
 			}
 			else {
-				throw std::string("Unrecongized record type: [") + sstream.str().at(0) + "]";
+				throw std::string("Unrecognized record type: [") + sstream.str().at(0) + "]";
 			}
 
 

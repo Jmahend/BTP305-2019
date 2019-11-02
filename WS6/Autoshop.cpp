@@ -1,7 +1,7 @@
 // Name: Tai-Juan Rennie
 // Seneca Student ID: 101359172
 // Seneca email: trennie1@myseneca.ca
-// Date of completion: 2019-10-29s
+// Date of completion: 2019-11-1
 //
 // I confirm that the content of this file is created by me,
 //   with the exception of the parts provided to me by my professor.
@@ -23,19 +23,22 @@ namespace sdds {
 		os  << "| Cars in the autoshop!        |" << std::endl;
 		os << "--------------------------------" << std::endl;
 
-		for (auto& obj : m_vehicles)
+		for (auto& obj : m_vehicles) {
 			obj->display(os);
-
+			os << std::endl;
+		}
 		os << "--------------------------------" << std::endl;
 	}
 
 	Autoshop::~Autoshop()
 	{
+
+		
 		for (auto& obj : m_vehicles)
-			delete[] obj;
+			delete obj;
 
 
-		m_vehicles.clear();
+		//m_vehicles.clear();
 	}
 }
 

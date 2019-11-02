@@ -27,24 +27,26 @@ namespace sdds {
 		
 		if (debug) std::cout << "-------------- Racecar Constructor (istream&) Called -------------------" << std::endl;
 
-		//setToEmpty();
+		setToEmpty();
 		
 
-		std::string line;
+		
 		std::string token;
-		unsigned int last_delim_pos; //Postion/index of last 
 
-		std::getline(is, line); // should return TAG,MAKER,CONDITION,TOP_SPEED,BOOSTER
-		Car::Trim(line); //remove spaces from line
+		std::getline(is, token); // should return TAG,MAKER,CONDITION,TOP_SPEED,BOOSTER
 
+		if (debug) std::cout << "token before trim : " << token << std::endl;
 
-		last_delim_pos = line.find_last_of(Car::getDelim());
+		Car::Trim(token); //remove spaces from line
 
-		if (debug) std::cout << "Line after TRIM : " << std::endl << "Last delimiter position : " << last_delim_pos << std::endl;
 
 		
-		if (last_delim_pos != std::string::npos && !line.empty()) {
-			token = line.substr(last_delim_pos + 1);
+
+		if (debug) std::cout << "Token after TRIM : " << std::endl;
+
+		
+		if (!token.empty()) {
+			
 		
 			if (debug) std::cout << "m_booster Token : " << token << std::endl;
 
@@ -68,7 +70,7 @@ namespace sdds {
 
 		std::string line;
 		std::stringstream ss;
-		unsigned int TopSpeed_pos;
+		
 		
 
 		
@@ -77,6 +79,7 @@ namespace sdds {
 
 	
 		line = ss.str();
+
 	
 		line = line.substr(0,23);
 
@@ -84,10 +87,10 @@ namespace sdds {
 	
 
 		
-		os << line;
-		os << std::setw(6) << std::setprecision(2) << std::fixed << this->topSpeed();
+		os <<  line;
+		os << " " << std::setw(6) << std::setprecision(2) << std::fixed << this->topSpeed();
 
-		os << " |" << std::endl;
+		os << " |*";
 		
 	}
 

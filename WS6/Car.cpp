@@ -20,7 +20,7 @@ using namespace std;
 namespace sdds {
 
 
-	bool Car::debug = true;
+	bool Car::debug = false;
 	std::string Car::delim = ",";
 
 
@@ -30,7 +30,12 @@ namespace sdds {
 
 	}
 	bool Car::isAnInt(std::string str) const { //Check if the string only has digits
-		return (str.find_first_not_of("0123456789.") == std::string::npos);
+
+		bool isInt = (str.find_first_not_of("0123456789.") == std::string::npos);
+
+		if (debug)  std::cout << "IsAnInt |" << str << "|" << (isInt ? "true" : "false");
+
+		return isInt;
 		//true if the string only contains digits
 	};
 	void Car::Trim(std::string& str) {
@@ -76,17 +81,15 @@ namespace sdds {
 
 
 		*this = Car(); //Set object to an empty safe state :)
+
 		isEmpty = false; //Assume this constructor will produce a valid car until proven otherwise
 						//A.k.a the safe empty state function is called.
 
-		std::string line; //used for retriving line 
 		std::string token;
 		std::string delim(",");
 
-		std::getline(is, line); //line of is : TAG,MAKER,CONDITION,TOP_SPEED
 		
-		unsigned int cur_pos = 0; //current position of cursor
-		unsigned int next_delim_pos = 0; //Position of the next delimiter
+		
 		
 
 		auto isConditionValid = [&](char& c) { //Check if char sent is a valid Car_Condition
@@ -107,26 +110,22 @@ namespace sdds {
 
 		
 
-		//Set car attributes :)
-		// TAG,MAKER,CONDITION,TOP_SPEED
-
-		if (debug) cout << "Line : " << line << endl;
 		
+
+		
+		//Set car attributes :)
+		//TAG,MAKER,CONDITION,TOP_SPEED
 	  for (int i = 0; i < 4 && isEmpty == false; ++i) {  //if the object goes into a safe empty state then stop the for loop
 
-			next_delim_pos = line.find(delim, cur_pos);  //find delimiter
-			token = line.substr(cur_pos, (next_delim_pos != string::npos ? next_delim_pos-cur_pos : line.length() )); //Grab a field from the line   line = TAG,MAKER,CONDITION,TOP_SPEED ---->   token = CONDITION
+			 std::getline(is, token, ',');  //Grab a field from the line   line = TAG,MAKER,CONDITION,TOP_SPEED ---->   token = CONDITION
 			
 			if (i != 2) { //Trim isn't used for 
 				Trim(token);
-
 			}
 
 			if (debug) {
 				cout << "i : " << i << endl;
 				cout << "isEmpty : " << (isEmpty ? "True" : "False") << endl << endl;
-				cout << "Cursor position : " << cur_pos << endl;
-				cout << "Next delim pos : " << next_delim_pos << endl;
 				cout << "Token : " << token << endl;
 			}
 
@@ -186,10 +185,7 @@ namespace sdds {
 					break;
 
 			}
-
-			cur_pos = next_delim_pos + 1; //set new cursor position
 			
-		
 		}
 
 	  if (debug) cout << "----------------Car (std::istream& is) ended------------------------------" << endl << endl;
@@ -210,22 +206,27 @@ namespace sdds {
 
 	void Car::display(std::ostream& os) const
 	{
-	
-		os << "| ";
 
-		os << std::right << std::setw(10) << m_manufacture;
 
-		os << " | ";
+		if (m_condition != Empty_Safe_State) {
+			os << "| ";
 
-		os << std::left << std::setw(6) << condition();
+			os << std::right << std::setw(10) << m_manufacture;
 
-		os << " | ";
+			os << " | ";
 
-		os << std::setw(6) << std::setprecision(2) << std::fixed << m_top_speed;
+			os << std::left << std::setw(6) << condition();
 
-		os << " |";
+			os << " | ";
 
-		os << endl;
+			os << std::setw(6) << std::setprecision(2) << std::fixed << m_top_speed;
+
+			os << " |";
+
+		}
+		else {
+			os << "EMPTY ITEM";
+		}
 
 	}
 

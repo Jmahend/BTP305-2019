@@ -26,8 +26,9 @@ namespace sdds {
 		template<typename T>
 		void select(T test, std::list<const Vehicle*>& vehicles) {
 
-			for (auto& obj : m_vehicles)
-			  vehicles.push_back(obj);
+			for (auto& obj : m_vehicles) 
+				if (test(obj))
+					vehicles.push_back(obj);
 
 
 		}

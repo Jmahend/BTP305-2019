@@ -6,6 +6,13 @@
 #include "Utilities.h"
 #include "Utilities.h"
 
+// Name: Tai-Juan Rennie
+// Seneca Student ID: 101359172
+// Seneca email: trennie1@myseneca.ca
+// Date of completion: 2019-11-1
+//
+// I confirm that the content of this file is created by me,
+//   with the exception of the parts provided to me by my professor.
 
 
 void loadData(const char* filename, sdds::Autoshop& as)
@@ -84,7 +91,7 @@ int main(int argc, char** argv)
 		//         and returns true if the vehicle is broken and needs repairs.
 		auto brokenVehicles = [](const sdds::Vehicle* vehicle) {
 		
-			return (vehicle->condition().compare("b") == 0);
+			return (vehicle->condition().compare("broken") == 0);
 		};
 			as.select(brokenVehicles, vehicles);
 		std::cout << "--------------------------------\n";
@@ -96,6 +103,9 @@ int main(int argc, char** argv)
 			std::cout << std::endl;
 		}
 		std::cout << "--------------------------------\n";
+
+	
+
 	}
 
 	return 0;
