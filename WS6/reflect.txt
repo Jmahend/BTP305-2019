@@ -1,0 +1,54 @@
+// Name: Tai-Juan Rennie
+// Seneca Student ID: 101359172
+// Seneca email: trennie1@myseneca.ca
+// Date of completion: 2019-10-29s
+//
+// I confirm that the content of this file is created by me,
+//   with the exception of the parts provided to me by my professor.
+
+
+This workshop was one of the easier ones overall. It taught me about how vectors can be used to handle both static and dynamically allocated objects. 
+
+Issues and concerns:
+
+When dealing with the sharing of an istream object between the Racecar and car constructor i found that i couldnt use the default getline.  Instead I had to
+call std::getline(is, str, delim) in the car constructor which then allowed my Racecar constructor to get the last bit of the line.  Due to this I had to 
+modify my existing Car constructor's code, luckily it was more erasing then adding new code. 
+
+I was using the wrong delete for deallocating my Autoshop vector which lead to the program crashing right as if it finished doing everything. This was fixed by
+changing delete from delete[] to delete.  The reason I had t do this is because i was only deleteing a single object and not an array of objects. 
+
+So it turns out I did not fully understand inheritiance and virtual functions/interfaces. I had the issue where my racecar display was only displaying Car::m_topSpeed and not the topSpeed of my racecar. 
+I thought the solution was to just modify the output given to me using a string stream but it turns out all i had to do was change the code in Car::display to call the topSpeeed() function.  I didn'bother
+changing my code as it would feel like I was copying from others but I have definitely now learnt my lesson and will carry the knowledge onto other labs.
+
+
+Why do you need to deallocate the dynamically allocated memory in your vector?
+
+	If we do not deallocate the dynamically allocated memory in our vector then we will end up with a memory leak.  
+	This causes resource scarcity when we begin scaling up our program.
+
+
+When building an object from the input file, different things can go wrong: the record represents an unknown type of vehicle, or record contains invalid data. 
+How can the function loadData() detect what went wrong? Can you think at another solution than the one you have implemented?
+
+
+	Another solution might be to have functions that detect and correct unknown types of vehicles that match it with
+	one that is similar of spelling.
+
+
+
+In this workshop you had to use std::list<sdds::Vehicle*> and std::vector<sdds::Vehicle*> to 
+store a collection of vehicles as pointers. 
+Could you have used std::list<sdds::Vehicle> and std::vector<sdds::Vehicle> instead? Justify your answer!
+
+
+	Yes, I could have used a vector as well. This is because they both act as data structures that accept insertion
+	and deletion operations for their elements. The only difference is that list is more efficient as it is non
+	contiguous memory and does not have to shift elements one by one like in vectors;
+
+
+Quiz 5 Reflection:
+10/10 quiz
+
+

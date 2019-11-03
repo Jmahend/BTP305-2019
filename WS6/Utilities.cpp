@@ -20,7 +20,7 @@ namespace sdds {
 	Vehicle* createInstance(std::istream& is)
 	{
 		
-		bool debug = false;
+		bool debug = false; //used for debugging
 
 		auto Trim = [](std::string& str) { //remove spaces at the end
 			while (str.at(0) == ' ')

@@ -38,6 +38,8 @@ namespace sdds {
 		return isInt;
 		//true if the string only contains digits
 	};
+
+
 	void Car::Trim(std::string& str) {
 		if (!str.empty()) {
 			while (str.at(0) == ' ')
