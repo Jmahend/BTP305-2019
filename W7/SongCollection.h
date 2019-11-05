@@ -3,8 +3,7 @@
 
 #include <string>
 #include <vector>
-#include <iostream>
-
+#include <list>
 namespace sdds {
 
 
@@ -17,31 +16,35 @@ namespace sdds {
 
 		double m_price;
 
-		unsigned int m_song_length_mins;
-		unsigned int m_song_length_secs;
+		unsigned int m_song_length;
 
+
+		static bool debug;
+		
 		bool isEmpty;
 		void setToEmpty();
 		Song();
-		Song(std::string& line);
+		Song(const std::string& line);
 
 	};
 	class SongCollection {
 
-		std::vector<Song*> Songs;
-		
-		void setToEmpty();
+		std::vector<Song> m_Songs;
+		unsigned int m_collection_length;
 
 	public:
 		SongCollection();
-		SongCollection(std::istream& is);
+		SongCollection(const char * filename);
 		~SongCollection();
 	public:
 
 		void  display(std::ostream& os) const;
-		friend std::ostream& operator<<(std::ostream& os, const Song& theSong);
-
+		void sort(const char *);
+		void cleanAlbum();
+		bool inCollection(const char * artist) const;
+		std::list<Song> getSongsForArtist(const char * artist) const;
 	};
+	std::ostream& operator<<(std::ostream& os, const Song& theSong);
 
 
 
