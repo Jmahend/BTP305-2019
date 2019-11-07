@@ -1,3 +1,11 @@
+// Name: Tai-Juan Rennie
+// Seneca Student ID: 101359172
+// Seneca email: trennie1
+// Date of completion: 2019-11-05
+//
+// I confirm that the content of this file is created by me,
+//   with the exception of the parts provided to me by my professor.
+
 #include <iomanip>
 #include <algorithm>
 #include <iostream>
@@ -5,7 +13,7 @@
 #include <numeric>
 #include "SongCollection.h"
 
-using namespace std;
+
 
 namespace sdds {
 
@@ -121,13 +129,13 @@ namespace sdds {
 
 		os << std::right << std::setw(6) << song.m_release_year;
 
-		os << " |";
+		os << " | ";
 
 		SongPlaytime();
 		
-		os << " |";
+		os << " | ";
 
-		os << std::setw(6) << std::setprecision(2) << std::fixed << song.m_price;
+		os << std::setprecision(2) << std::fixed << song.m_price;
 
 		os << " |";
 
@@ -160,6 +168,8 @@ namespace sdds {
 		else {
 			throw std::string("Wrong file name : ") + filename;
 		}
+
+		file.close();
 	}
 
 
@@ -171,6 +181,7 @@ namespace sdds {
 
 	void SongCollection::display(std::ostream& os) const
 	{
+		
 		auto CollectionPlaytime = [&]() {
 
 			auto getSeconds = []( int sum, const Song song) {
@@ -183,22 +194,22 @@ namespace sdds {
 
 			minutes = seconds / 60;
 			hours = minutes / 60;
-			os << "-------------------------------------------" << std::endl;
+			os << "----------------------------------------------------------------------------------------"  << std::endl;
 
-			os << "|";
-			os << "Total Listening Time: ";
+			 os << "|";
+			os << "                                                        Total Listening Time: ";
 
 			os << int(hours);
 			os << ":";
 			int(minutes % 60) < 10 ? os << "0" << int(minutes % 60) : os << int(minutes % 60);
 			os << ":";
 			int(seconds % 60) < 10 ? os << "0" << int(seconds % 60) : os << int(seconds % 60);
-			os << "|" << std::endl;
-
+			os << " |" << std::endl;
+			
 		};
-
 		
-
+		
+	
 		auto displaySong = [&](const Song song) {
 			os << song << std::endl;
 		};
@@ -212,12 +223,14 @@ namespace sdds {
 
 		auto Compare = [&](Song song1, Song song2) {
 
-			if (field == "title")
-				return song1.m_title > song2.m_title;
-			else if (field == "album")
-				return song1.m_album > song2.m_album;
-			else if (field == "length")
-				return song1.m_song_length > song2.m_song_length;
+			std::string _field(field);
+
+			if (field == std::string("title"))
+				return song1.m_title < song2.m_title;
+			else if (_field == std::string("album"))
+				return song1.m_album < song2.m_album;
+			else if (_field == std::string("length"))
+				return song1.m_song_length < song2.m_song_length;
 			else
 				throw "INVALID FIELD SENT TO SORT HOE";
 

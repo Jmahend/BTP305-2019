@@ -1,0 +1,66 @@
+
+In this workshop we explored the large usuability that STL containers and algoritms offer.
+This include functions such as for_each, accumlate, copy_if and other functions that we would
+other wise have to code messy manual for loops for. 
+
+TLDR: Use algoritms for stl containers so you don't have to deal with messy for loops and multiple lines of code.
+
+Issues:
+
+	The workshop overall was very easy and straight forward. I would say the most difficult/tedious
+	part was going through the documentation for the algoritms library to find the correct function to use.
+	Once we found then it was all just typing and understanding the code from the examples given. 
+
+	My biggest issue came from a site that put the for_each function in the non-modifying section. This 
+	lead me to assume that for_each did not have the ability to edit any container it was working with.
+	After a lot of time trying to figure out how to go about the cleanAlbum function without the for_each
+	function, I found out that it could actually edit containers from some classmates.
+
+
+
+
+Display in_lab  : for_each 
+	
+	for each obj print out it's contents. This function pretty much screams use for_each lol.
+
+
+Display at_home : std::accumlate 
+
+	We want to grab the sum of all the song's lengths so which is perfect for std::accumlate which returns
+	the sum if we pass an addition function through it.
+	
+list all the STL functions that you have used in this workshop; explain your reasoning for choosing each one, and not another.
+	
+	sort : std::sort
+		This function pretty much screams use sort so i used it ._.
+		
+	cleanAlbum : for_each
+		 After a lengthy analysis i came to the conclusion that for_each is not only a function that
+		 can modify but also the best way to go about cleanAlbum.  Any other method is either clumbersome or
+		 unreadable.
+		 
+	getSongsForArist : copy_if
+		
+		How I read the instructions : copy(push) the song from this array to another array if this statement is true
+		Translation : use the copy_If algoritm.
+
+	inCollection : any_of
+		How I read the instructiosn : if this obj exist in this array then return true
+		Translation:  use any_of function
+		
+	
+	
+	present the advantages of using STL algorithms vs. implementing the functionality by yourself using loop:
+		1. less code
+		2. more readable 
+		3. less time making for loop & if statements
+		
+	the function that sorts the collection of songs receives as a parameter the field name to use; this can create errors if the client specifies an invalid field (or misspells it). How would you redesign that function to prevent the client to specify an invalid string, allowing any error to be detected by the compiler?
+		I throw a custom error if the field name isn't a valid field. (i did this in my code already)
+		
+Quiz 6 Reflection:
+
+1) Wios can work witht he wchatt types of data
+2)
+3) a stl container is passed to a stl algoritm by specifycing the the indexes you would like to begin and end at. 
+
