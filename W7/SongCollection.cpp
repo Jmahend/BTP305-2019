@@ -104,13 +104,18 @@ namespace sdds {
 	std::ostream& operator<<(std::ostream& os, const Song& song)
 	{
 
-		auto SongPlaytime = [&]() {
+		auto SongPlaytime = [](int seconds) {
+
+			std::string Time;
 			int minutes;
 
-			minutes = song.m_song_length / 60;
+			minutes = seconds / 60;
 			
-			os << int(minutes % 60) << ":";
-			int(song.m_song_length % 60) < 10 ? os << "0" << int(song.m_song_length % 60) : os << int(song.m_song_length % 60);
+			Time = std::to_string(int(minutes % 60));
+			Time+= ":";
+			Time+= int(seconds % 60) < 10 ?  "0" + std::to_string(int(seconds % 60)) : std::to_string(int(seconds % 60));
+
+			return Time;
 		};
 		
 		os << "| ";
@@ -131,7 +136,7 @@ namespace sdds {
 
 		os << " | ";
 
-		SongPlaytime();
+		os << SongPlaytime(song.m_song_length);
 		
 		os << " | ";
 
@@ -182,46 +187,46 @@ namespace sdds {
 	void SongCollection::display(std::ostream& os) const
 	{
 		
-		auto CollectionPlaytime = [&]() {
+		auto FormatTime = [](int seconds) {
 
-			auto getSeconds = []( int sum, const Song song) {
-				return song.m_song_length + sum;
-			};
-
-			int seconds = std::accumulate(m_Songs.begin(), m_Songs.end(), 0, getSeconds);
+			std::string Time;
+			
 			int hours = 0;
 			int minutes = 0;
 
 			minutes = seconds / 60;
 			hours = minutes / 60;
-			os << "----------------------------------------------------------------------------------------"  << std::endl;
 
-			 os << "|";
-			os << "                                                        Total Listening Time: ";
+			Time = std::to_string(hours);
+			Time += ":";
+			Time += int(minutes % 60) < 10 ?  std::string("0") + std::to_string(int(minutes % 60)) : std::to_string(int(minutes % 60));
+			Time += ":";
+			Time += int(seconds % 60) < 10 ? std::string("0") + std::to_string(int(seconds % 60)) : std::to_string(int(seconds % 60));
 
-			os << int(hours);
-			os << ":";
-			int(minutes % 60) < 10 ? os << "0" << int(minutes % 60) : os << int(minutes % 60);
-			os << ":";
-			int(seconds % 60) < 10 ? os << "0" << int(seconds % 60) : os << int(seconds % 60);
-			os << " |" << std::endl;
-			
+
+			return Time;
+		
 		};
 		
 		
+		std::for_each(m_Songs.begin(), m_Songs.end(), [&](const Song song) { os << song << std::endl; });
+
+		os << "----------------------------------------------------------------------------------------" << std::endl;
+
+		os << "|";
+		os << "                                                        Total Listening Time: ";
+
+		os << FormatTime(std::accumulate(m_Songs.begin(), m_Songs.end(), 0, [](int sum, const Song song) { return song.m_song_length + sum;}));
+
+		os << " |" << std::endl;
+
 	
-		auto displaySong = [&](const Song song) {
-			os << song << std::endl;
-		};
-
-		std::for_each(m_Songs.begin(), m_Songs.end(), displaySong);
-		CollectionPlaytime();
 	}
 
 	void SongCollection::sort(const char * field)
 	{
 
-		auto Compare = [&](Song song1, Song song2) {
+		auto Compare = [field](Song song1, Song song2) {
 
 			std::string _field(field);
 
@@ -243,11 +248,10 @@ namespace sdds {
 	void SongCollection::cleanAlbum()
 	{
 
-		auto FindNone = [&](Song& song) {
+		auto FindNone = [](Song& song) {
 
 			if (song.m_album == std::string("[None]"))
 				song.m_album.clear();
-
 
 		};
 		
@@ -260,7 +264,7 @@ namespace sdds {
 	bool SongCollection::inCollection(const char * artist) const
 	{
 
-		return std::any_of(m_Songs.begin(), m_Songs.end(), [&](const Song& song) {return song.m_artist == std::string(artist); });
+		return std::any_of(m_Songs.begin(), m_Songs.end(), [artist](const Song& song) {return song.m_artist == std::string(artist); });
 
 	}
 
@@ -268,7 +272,7 @@ namespace sdds {
 	{
 		 std::list<Song> Artist_Collection(m_Songs.size());
 
-		 auto it = std::copy_if(m_Songs.begin(), m_Songs.end(), Artist_Collection.begin(), [&](const Song& song) {return song.m_artist == std::string(artist); });
+		 auto it = std::copy_if(m_Songs.begin(), m_Songs.end(), Artist_Collection.begin(), [artist](const Song& song) {return song.m_artist == std::string(artist); });
 		 Artist_Collection.resize(std::distance(Artist_Collection.begin(), it));
 		 return Artist_Collection;
 	}
