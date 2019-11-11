@@ -1,3 +1,12 @@
+// Name: Tai-Juan Rennie
+// Seneca Student ID: 101359172
+// Seneca email: trennie1@myseneca.ca
+// Date of completion: 11/10/2019
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
+
+
 #include <iostream>
 #include <iomanip>
 #include<iterator> //for iteraors
@@ -95,13 +104,11 @@ CustomerOrder::CustomerOrder(std::string& line)
 
 CustomerOrder::CustomerOrder(CustomerOrder&& cust_order) noexcept
 {
-
 	*this = std::move(cust_order);
 }
 
 bool CustomerOrder::getItemFillState(std::string item_name) const
 {
-
 	auto it = std::find_if(m_lstItem.begin(), m_lstItem.end(), [&item_name](const ItemInfo* item_info_obj) {return item_info_obj->m_itemName.compare(item_name) == 0; });
 	return (it != m_lstItem.end() ? (*it)->m_fillState : true);
 
@@ -126,10 +133,10 @@ void CustomerOrder::fillItem(Item& item, std::ostream& os)
 			(*it)->m_fillState = true;
 
 			//print Filled NAME, PRODUCT[ITEM_NAME].
-			os << "Filled " << m_name << ", PRODUCT[" << item.getName() << "]" << std::endl;
+			os << "Filled " << m_name << ", " << m_product << "[" << item.getName() << "]" << std::endl;
 		}
 		else
-			os << "Unable to fill " << m_name << ", PRODUCT[" << item.getName()  << std::endl;
+			os << "Unable to fill " << m_name << ", " << m_product << "[" << item.getName()  << std::endl;
 
 	}
 

@@ -1,3 +1,12 @@
+// Name: Tai-Juan Rennie
+// Seneca Student ID: 101359172
+// Seneca email: trennie1@myseneca.ca
+// Date of completion: 11/10/2019
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
+
+
 #ifndef CUSTOMERORDERS_H
 #define CUSTOMERORDERS_H
 
