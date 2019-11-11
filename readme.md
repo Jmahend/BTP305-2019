@@ -13,7 +13,7 @@ This repository contains Workshops, Projects, Notes, and other course work for F
 
 ### Finished Final Project Milestones 
 - [x] MS1 - Utilities and Item classes
-- X ] MS2 - CustomerOrder class
+- {x] MS2 - CustomerOrder class
 - [ ] MS3 - Task & LineManager class
 
 ### Notes used
