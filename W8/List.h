@@ -36,6 +36,9 @@ namespace sdds {
 		void operator+=(T* obj) {
 			list.push_back(*obj);
 		}
+		void operator+=(std::unique_ptr<T> &obj) {
+			list.push_back(*obj);
+		}
 
 		void display(std::ostream& os) const {
             os << std::fixed << std::setprecision(2);
