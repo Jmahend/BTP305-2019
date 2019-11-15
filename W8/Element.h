@@ -1,5 +1,15 @@
 // Workshop 8 - Smart Pointers
 // 2019/11 - Cornel
+// Name: Tai-Juan Rennie
+// Seneca Student ID: 101359172	
+// Seneca email: trennie1@myseneca.ca	
+// Date of completion: 2019-11-12
+//
+// I confirm that the content of this file is created by me,
+//   with the exception of the parts provided to me by my professor.
+
+// Workshop 8 - Smart Pointers
+// 2019/11 - Cornel
 
 #ifndef SDDS_ELEMENT_H
 #define SDDS_ELEMENT_H
