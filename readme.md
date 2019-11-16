@@ -1,5 +1,5 @@
 # BTP305 - 2019 - Taught by Cornel Barna @ Seneca
-This repository contains Workshops, Projects, Notes, and other course work for Fall 2019 OOP305 emphasizing topics such as Copy and Move semantics, STL containers, smart pointers, and much more
+This repository contains Workshops, Projects, Notes, and other course work for Fall 2019 BTP305 emphasizing topics such as Copy and Move semantics, STL containers, smart pointers, and much more
 
 ### Finished Workshops
 - [x] WS01 - Across Translation Units
