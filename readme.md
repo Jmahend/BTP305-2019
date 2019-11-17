@@ -8,7 +8,7 @@ This repository contains Workshops, Projects, Notes, and other course work for F
 - [x] WS04 - Containers
 - [x] WS05 - Lambda Expressions
 - [x] WS07 - STL Algorithms
-- [ ] WS08 - Smart Pointers
+- [x] WS08 - Smart Pointers
 - [ ] WS09 - Multi-Threading
 
 ### Finished Final Project Milestones 
