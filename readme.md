@@ -14,7 +14,7 @@ This repository contains Workshops, Projects, Notes, and other course work for F
 ### Finished Final Project Milestones 
 - [x] MS1 - Utilities and Item classes
 - [x] MS2 - CustomerOrder class
-- [ ] MS3 - Task & LineManager class
+- [x] MS3 - Task & LineManager class
 
 ### Notes used
 - Cherno C++ Youtube Channel: https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb
