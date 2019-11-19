@@ -1,0 +1,7 @@
+I learned how to use std::bind, I find it very similiar to lamda's.
+
+
+threads makes different parts of code run at the same time which can be extremely useful.
+Threads also have their own overhead so there exist some scenarios where using them is actually
+ill-advised.
+
