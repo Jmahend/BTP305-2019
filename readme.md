@@ -9,7 +9,7 @@ This repository contains Workshops, Projects, Notes, and other course work for F
 - [x] WS05 - Lambda Expressions
 - [x] WS07 - STL Algorithms
 - [x] WS08 - Smart Pointers
-- [ ] WS09 - Multi-Threading
+- [x] WS09 - Multi-Threading
 
 ### Finished Final Project Milestones 
 - [x] MS1 - Utilities and Item classes
