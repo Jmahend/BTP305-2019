@@ -38,8 +38,6 @@ void Task::runProcess(std::ostream& os)
 			}
 
 
-
-
 		}
 	
 
@@ -98,8 +96,7 @@ bool Task::getComplete(CustomerOrder& cust_order)
 
 void Task::validate(std::ostream& os) const
 {
-
-
+ 
 	os << Item::getName() << " --> " << (m_pNextTask == nullptr ? "END OF LINE" :  m_pNextTask->getName()) << std::endl;
 
 }

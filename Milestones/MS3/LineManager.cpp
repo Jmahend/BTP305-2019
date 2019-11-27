@@ -27,7 +27,6 @@ LineManager::LineManager(const std::string& AssemblyLine_File_Name, std::vector<
 	
 	Task* cur_task;
 	
-
 	bool token_found = true;
 	size_t cur_pos = 0;
 
@@ -76,6 +75,7 @@ LineManager::LineManager(const std::string& AssemblyLine_File_Name, std::vector<
 				if (it1 != AssemblyLine.end() && it2 != AssemblyLine.end()) {
 					(*it1)->setNextTask( *(*it2) );
 				}
+
 				tsk1.clear();
 				tsk2.clear();
 
